@@ -1,5 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import Ejercicios.contorllers.Laberinto;
+import Ejercicios.models.Celda;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -25,7 +29,10 @@ public class App {
         System.out.println("Time taken: " + (tiempoTotal2/1_000_000_000.0) + " s");
 
         /// Ejericio 1
-        // runEjercicio();
+        runEjercicio();
+
+
+
 
     }
 
@@ -85,14 +92,20 @@ public class App {
 
     }
 
-    public static void runEjercicio() {
-
-        // boolean[][] grid = {
-        // { true, true, true, true },
-        // { false, false, false, true },
-        // { true, true, false, true },
-        // { true, true, false, true }
-        // };
-
-    }
+ 
+        public static void runEjercicio() {
+            boolean[][] grid = {
+                    { true, true, true, true },
+                    { false, false, false, true },
+                    { true, true, false, true },
+                    { true, true, false, true }
+            };
+            Laberinto laberinto = new Laberinto();
+            List<Celda> path = laberinto.getPath(grid);
+            System.out.println("Camino encontrado en el laberinto:");
+            for (int i = path.size() - 1; i >= 0; i--) {
+                System.out.print(path.get(i) + (i > 0 ? " , " : "\n"));
+            }
+        }
+    
 }

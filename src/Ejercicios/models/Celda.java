@@ -10,6 +10,14 @@ public class Celda {
         this.col = col;
     }
 
+    @Override
+    public String toString() {
+        return "Celda [fila=" + row + ", columna=" + col + "]";
+    }
+
+
+
+
     // Método hashCode para generar un código hash único para cada instancia de Cell
     @Override
     public int hashCode() {
